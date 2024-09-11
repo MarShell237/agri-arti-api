@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('from_id');
+            $table->bigInteger('to_id');
+            $table->text('content');
+            $table->dateTime('read_at');
             $table->timestamps();
+
+            $table->foreign('from_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign('to_id')->references('id')->on('users')->cascadeOnDelete();
         });
     }
 
