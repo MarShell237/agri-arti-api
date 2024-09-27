@@ -38,7 +38,7 @@ class UserController extends Controller
       // On retourne les informations du nouvel utilisateur en JSON
       return response()->json([
         'user'=>$user,
-        'status_code' => 200,
+        'status_code' => 201,
         'status_message' => 'utilisateur enregistrer avec success'
       ], 201);
     }
